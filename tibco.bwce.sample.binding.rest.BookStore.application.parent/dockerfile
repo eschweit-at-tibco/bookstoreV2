@@ -1,0 +1,4 @@
+FROM 52.63.34.52:/bwce-latest
+MAINTAINER eschweit@tibco.com
+ADD tibco.bwce.sample.binding.rest.BookStore.application_1.0.0.ear
+EXPOSE 8080
