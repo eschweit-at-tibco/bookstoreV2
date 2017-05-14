@@ -51,15 +51,15 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbDriver</name>
-			<value>org.postgresql.Driver</value>
+			<value>com.mysql.jdbc.Driver</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbURL</name>
-			<value>jdbc:postgresql://54.67.121.175:5432/postgres</value>
+			<value>jdbc:mysql://bookstore-db.cptwyoo6cojq.ap-southeast-2.rds.amazonaws.com:3306/BookstoreDB_Test</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -67,7 +67,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbPassword</name>
-			<value>#!GGJ+JL88lZfUCyq9BUmk92uzoH5HOM2XBF+Rv+JtedM=</value>
+			<value>#!BsfcUuUhh/GTW1/ZvqD/5x38yXLzw75mCXPGAg369Eo=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
@@ -75,11 +75,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbUserName</name>
-			<value>bwuser</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//BW.CLOUD.PORT</name>

@@ -51,7 +51,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbDriver</name>
-			<value>org.postgresql.Driver</value>
+			<value>com.mysql.jdbc.Driver</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -59,7 +59,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbPassword</name>
-			<value>#!Kb5JiQthWKLMdef62RQ3mcZVUuN8Ccoe+t0Yjgxd2vk=</value>
+			<value>#!+2HdgvX1UPd3/iINpTU5HPla+9dq3r1VU1ow1gyRXLQ=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
@@ -67,7 +67,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbURL</name>
-			<value>jdbc:postgresql://54.67.121.175:5432/postgres</value>
+			<value>jdbc:mysql://bookstore-db.cptwyoo6cojq.ap-southeast-2.rds.amazonaws.com:3306/BookstoreDB_Test</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -75,7 +75,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbUserName</name>
-			<value>bwuser</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
