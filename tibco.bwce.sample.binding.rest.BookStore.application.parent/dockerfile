@@ -1,6 +1,6 @@
 FROM 52.63.34.52:5000/bwce:latest
 MAINTAINER eschweit@tibco.com 
 COPY resources /resources
-COPY resources/addons/jars/*.jar /tmp/system/lib
+COPY resources/addons/jars/*.jar /tmp/bwce/2.3/system/lib
 ADD tibco.bwce.sample.binding.rest.BookStore.application_1.0.0.ear /
 EXPOSE 8080
