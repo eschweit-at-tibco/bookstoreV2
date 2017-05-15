@@ -1,0 +1,288 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Bookstore Collection",
+		"_postman_id": "b4150108-c265-09ed-ca7b-3e1aba8b5cbd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book Creation Unit",
+			"description": "",
+			"item": [
+				{
+					"name": "Check Books Empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"",
+									"var receivedData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Did not receive a Book structure\"] = (receivedData.Book === undefined);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/books",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"",
+									"var receivedData = JSON.parse(responseBody);",
+									"var expectedData = JSON.parse('{\"Book\":[{\\",
+									"  \"isbn\": \"978-0140177398\",\\",
+									"  \"name\": \"Of Mice and Men\",\\",
+									"  \"description\": \"A classic by John Steinbeck\",\\",
+									"  \"authorName\": \"John Steinbeck\",\\",
+									"  \"releaseDate\": \"1993-09-01\",\\",
+									"  \"vintage\": true,\\",
+									"  \"signed\": false,\\",
+									"  \"price\": 9.95\\",
+									"}]}');",
+									"",
+									"tests[\"Put books has stored the right values\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/books",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Book\": [\n\t\t{\n\t\t\t\"isbn\": \"978-0140177398\",\n\t\t\t\"name\": \"Of Mice and Men\",\n\t\t\t\"description\": \"A classic by John Steinbeck\",\n\t\t\t\"authorName\": \"John Steinbeck\",\n\t\t\t\"releaseDate\": \"1993-09-01\",\n\t\t\t\"vintage\": true,\n\t\t\t\"signed\": false,\n\t\t\t\"price\": 9.95\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Created Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"",
+									"var receivedData = JSON.parse(responseBody);",
+									"var expectedData = JSON.parse('{\\",
+									"  \"isbn\": \"978-0140177398\",\\",
+									"  \"name\": \"Of Mice and Men\",\\",
+									"  \"description\": \"A classic by John Steinbeck\",\\",
+									"  \"authorName\": \"John Steinbeck\",\\",
+									"  \"releaseDate\": \"1993-09-01Z\",\\",
+									"  \"vintage\": true,\\",
+									"  \"signed\": false,\\",
+									"  \"price\": 9.95\\",
+									"}');",
+									"",
+									"tests[\"Put books has been found\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/book/978-0140177398",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Book Again",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"",
+									"var receivedData = JSON.parse(responseBody);",
+									"var expectedData = JSON.parse('{\"Book\":[{\\",
+									"  \"isbn\": \"978-0140177398\",\\",
+									"  \"name\": \"Of Mice and Men\",\\",
+									"  \"description\": \"A classic by John Steinbeck\",\\",
+									"  \"authorName\": \"John Steinbeck\",\\",
+									"  \"releaseDate\": \"1993-09-01\",\\",
+									"  \"vintage\": true,\\",
+									"  \"signed\": false,\\",
+									"  \"price\": 9.95\\",
+									"}]}');",
+									"",
+									"tests[\"Put twice on the same book is OK\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/books",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Book\": [\n\t\t{\n\t\t\t\"isbn\": \"978-0140177398\",\n\t\t\t\"name\": \"Of Mice and Men\",\n\t\t\t\"description\": \"A classic by John Steinbeck\",\n\t\t\t\"authorName\": \"John Steinbeck\",\n\t\t\t\"releaseDate\": \"1993-09-01\",\n\t\t\t\"vintage\": true,\n\t\t\t\"signed\": false,\n\t\t\t\"price\": 9.95\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"",
+									"var receivedData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Received a Book structure\"] = (receivedData.Book !== undefined);",
+									"tests[\"Received the right number of entries\"] = (receivedData.Book.length === 2);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/books",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Unknown Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 500\"] = responseCode.code === 500;",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{base_url}}/book/955-0440177398",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

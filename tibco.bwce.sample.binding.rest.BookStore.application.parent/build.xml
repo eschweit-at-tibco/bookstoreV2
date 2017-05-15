@@ -6,7 +6,7 @@
 		]]>
 	</scriptdef>	
 				
-	<property name="IMAGE_NAME" value="52.63.34.52:5000/bwce-bookstore" />
+	<property name="IMAGE_NAME" value="bwce-bookstore" />
 	<property name="PORT_NUMBER" value="8080" />
 	<generateguid name="GUID" />
 	<property name="CONTAINER_NAME" value="${GUID}" />
@@ -119,9 +119,26 @@
 	
 	<target name="build">
 		<copy file="../tibco.bwce.sample.binding.rest.BookStore.application/target/tibco.bwce.sample.binding.rest.BookStore.application_1.0.0.ear" todir="."/>
-		
-		<echo message="Creating Docker Image"/>
+		<echo message="Creating Test Docker Image"/>		
 		<create-docker-image image-name="${IMAGE_NAME}"/>
+	</target>
+	
+	<target name="deploy-test-image">
+		<run-docker-image image-name="${IMAGE_NAME}" container-name="${CONTAINER_NAME}" port-number="${PORT_NUMBER}"/>
+
+		<echo message="Waiting for Docker Container to be started"/>
+		<waitfor maxwait="15" maxwaitunit="second">
+			<http url="http://localhost:${PORT_NUMBER}/" />
+		</waitfor>
+	</target>
+	
+	<target name="undeploy-test-image">
+		<echo message="Stopping Docker Container"/>	
+		<stop-docker-container container-name="${CONTAINER_NAME}"/>
+
+		<echo message="Removing Docker Container and Image"/>	
+		<remove-docker-container container-name="${CONTAINER_NAME}"/>
+		<remove-docker-image image-name="${IMAGE_NAME}"/>
 	</target>
 </project>
 	
