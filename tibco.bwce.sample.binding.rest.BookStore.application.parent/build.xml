@@ -7,6 +7,7 @@
 	</scriptdef>	
 				
 	<property name="IMAGE_NAME" value="bwce-bookstore" />
+	<property name="HOST_PORT_NUMBER" value="9080" />
 	<property name="PORT_NUMBER" value="8080" />
 	<generateguid name="GUID" />
 	<property name="CONTAINER_NAME" value="${GUID}" />
@@ -36,7 +37,8 @@
 	<macrodef name="run-docker-image">
 		<attribute name="image-name"/>
 		<attribute name="container-name"/>
-		<attribute name="port-number"/>
+		<attribute name="host-port-number"/>
+		<attribute name="image-port-number"/>
 		<sequential>
 	    	<exec executable="docker">
 	        	<arg value="run" />
@@ -44,7 +46,7 @@
         		<arg value="--name" />
         		<arg value="@{container-name}" />
         		<arg value="--publish" />
-        		<arg value="@{port-number}:@{port-number}" />
+        		<arg value="@{host-port-number}:@{image-port-number}" />
         		<arg value="@{image-name}" />
     		</exec>
     	</sequential>
@@ -124,11 +126,11 @@
 	</target>
 	
 	<target name="deploy-test-image">
-		<run-docker-image image-name="${IMAGE_NAME}" container-name="${CONTAINER_NAME}" port-number="${PORT_NUMBER}"/>
+		<run-docker-image image-name="${IMAGE_NAME}" container-name="${CONTAINER_NAME}" host-port-number="${HOST-PORT_NUMBER}" port-number="${PORT_NUMBER}"/>
 
 		<echo message="Waiting for Docker Container to be started"/>
 		<waitfor maxwait="15" maxwaitunit="second">
-			<http url="http://localhost:${PORT_NUMBER}/" />
+			<http url="http://localhost:${HOST-PORT_NUMBER}/" />
 		</waitfor>
 	</target>
 	
