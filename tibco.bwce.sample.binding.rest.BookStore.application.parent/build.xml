@@ -140,7 +140,7 @@
 			<arg value="run" />
 			<arg value="-e" />
 			<arg value="./tests/newman/Bookstore Test.postman_environment.json" />
-			<arg value="./tests/newman/Bookstore\ Collection.postman_collection.json" />
+			<arg value="./tests/newman/Bookstore Collection.postman_collection.json" />
 		</exec>
 	</target>
 	
