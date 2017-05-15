@@ -139,8 +139,8 @@
 		<exec executable="newman">
 			<arg value="run" />
 			<arg value="-e" />
-			<arg value="./tibco.bwce.sample.binding.rest.BookStore.application.parent/tests/newman/Bookstore Test.postman_environment.json" />
-			<arg value="./tibco.bwce.sample.binding.rest.BookStore.application.parent/tests/newman/Bookstore\ Collection.postman_collection.json" />
+			<arg value="./tests/newman/Bookstore Test.postman_environment.json" />
+			<arg value="./tests/newman/Bookstore\ Collection.postman_collection.json" />
 		</exec>
 	</target>
 	
