@@ -129,7 +129,7 @@
 		<run-docker-image image-name="${IMAGE_NAME}" container-name="${CONTAINER_NAME}" host-port-number="${HOST_PORT_NUMBER}" image-port-number="${PORT_NUMBER}"/>
 
 		<echo message="Waiting for Docker Container to be started"/>
-		<waitfor maxwait="25" maxwaitunit="second">
+		<waitfor maxwait="45" maxwaitunit="second">
 			<http url="http://localhost:${HOST_PORT_NUMBER}/books" />
 		</waitfor>
 	</target>
