@@ -134,6 +134,16 @@
 		</waitfor>
 	</target>
 	
+	<target name="newman">
+		<echo message="Testing with Newman"/>
+		<exec executable="newman">
+			<arg value="run" />
+			<arg value="-e" />
+			<arg value="./tibco.bwce.sample.binding.rest.BookStore.application.parent/tests/newman/Bookstore Test.postman_environment.json" />
+			<arg value="./tibco.bwce.sample.binding.rest.BookStore.application.parent/tests/newman/Bookstore\ Collection.postman_collection.json" />
+		</exec>
+	</target>
+	
 	<target name="undeploy-test-image">
 		<echo message="Stopping Docker Container"/>	
 		<stop-docker-container container-name="${CONTAINER_NAME}"/>
