@@ -67,7 +67,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbPassword</name>
-			<value>#!67qUOS6bHCKi27XOqVOnIAMZfBigqDTp0tS+mSky9eo=</value>
+			<value>#!iyxM1he3hLjuSRgobzViOp3F1wMNLHYfxHJBdxfvYss=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
@@ -75,11 +75,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbUserName</name>
-			<value>admin</value>
+			<value>tibco</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//BW.CLOUD.PORT</name>
