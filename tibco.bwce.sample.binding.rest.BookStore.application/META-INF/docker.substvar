@@ -51,11 +51,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbDriver</name>
-			<value>com.mysql.jdbc.Driver</value>
+			<value>org.postgresql.Driver</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbURL</name>
