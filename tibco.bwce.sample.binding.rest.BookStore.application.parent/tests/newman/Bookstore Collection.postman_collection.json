@@ -59,7 +59,7 @@
 								"type": "text/javascript",
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Response time is less than 400ms\"] = responseTime < 400;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
 									"var expectedData = JSON.parse('{\"Book\":[{\\",
