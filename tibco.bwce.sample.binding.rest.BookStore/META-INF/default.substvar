@@ -51,7 +51,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbDriver</name>
-			<value>com.mysql.jdbc.Driver</value>
+			<value>org.postgresql.Driver</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -67,7 +67,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbURL</name>
-			<value>jdbc:mysql://bookstore-db.cptwyoo6cojq.ap-southeast-2.rds.amazonaws.com:3306/BookstoreDB_Test</value>
+			<value>jdbc:postgresql://ecs-bookstore-db.cptwyoo6cojq.ap-southeast-2.rds.amazonaws.com:5432/BookstoreDB_Test</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -75,7 +75,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>dbUserName</name>
-			<value>admin</value>
+			<value>tibco</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

@@ -59,11 +59,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbURL</name>
-			<value>jdbc:mysql://bookstore-db.cptwyoo6cojq.ap-southeast-2.rds.amazonaws.com:3306/BookstoreDB_Test</value>
+			<value>jdbc:mysql://ecs-bookstore-db.cptwyoo6cojq.ap-southeast-2.rds.amazonaws.com:5432/BookstoreDB_Test</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//tibco.bwce.sample.binding.rest.BookStore//dbPassword</name>
