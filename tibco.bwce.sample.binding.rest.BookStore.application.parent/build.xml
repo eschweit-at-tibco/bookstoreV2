@@ -130,7 +130,7 @@
 
 		<echo message="Waiting for Docker Container to be started"/>
 		<waitfor maxwait="15" maxwaitunit="second">
-			<http url="http://localhost:${HOST_PORT_NUMBER}/" />
+			<http url="http://localhost:${HOST_PORT_NUMBER}/books" />
 		</waitfor>
 	</target>
 	
