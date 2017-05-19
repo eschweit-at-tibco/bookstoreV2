@@ -38,6 +38,7 @@
   <sca:property xmi:id="_PIiEsEe1EeSkBPbNLcPWbg" name="dbURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_PKZs8Ee1EeSkBPbNLcPWbg" name="dbUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_cYKcsGbkEeWUZJX06Fex6w" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_JZ5rkDxXEeezEapjm-b2bw" name="ec_ServiceUnavailable" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="_TRR2MEfKEeSkBPbNLcPWbg" name="ComponentBooks" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_TRR2MUfKEeSkBPbNLcPWbg" processName="tibco.bwce.sample.binding.rest.bookstore.Books"/>
     <sca:service xmi:id="_TS94QEfKEeSkBPbNLcPWbg" name="Books">

@@ -89,5 +89,13 @@
 			<type>Integer</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
+		<globalVariable>
+			<name>//tibco.bwce.sample.binding.rest.BookStore//ec_ServiceUnavailable</name>
+			<value>503</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Integer</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
 	</globalVariables>
 </repository>
