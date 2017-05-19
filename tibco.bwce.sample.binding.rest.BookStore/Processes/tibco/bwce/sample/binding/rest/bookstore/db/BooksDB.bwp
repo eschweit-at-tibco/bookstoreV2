@@ -2990,7 +2990,7 @@
 
                                     <value
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="INSERT INTO &quot;public&quot;.&quot;books&quot; (&quot;isbn&quot;, &quot;name&quot;, &quot;description&quot;, &quot;authorName&quot;,&#xa;  &quot;releaseYear&quot;, &quot;vintage&quot;, &quot;signed&quot;, &quot;price&quot;)&#xa;  VALUES (?, ?, ?, ?, ?)"
+                                    sqlStatement="INSERT INTO &quot;public&quot;.&quot;books&quot; (&quot;isbn&quot;, &quot;name&quot;, &quot;description&quot;, &quot;authorName&quot;,&#xa;  &quot;releaseYear&quot;)&#xa;  VALUES (?, ?, ?, ?, ?)"
                                     timeout="10" xsi:type="jdbcPalette:JDBCUpdateActivity">
 
                                     <PreparedParameters
