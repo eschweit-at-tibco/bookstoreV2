@@ -145,12 +145,12 @@
 	</target>
 	
 	<target name="undeploy-test-image">
-		<echo message="Stopping Docker Container"/>	
+<!--		<echo message="Stopping Docker Container"/>	
 		<stop-docker-container container-name="${CONTAINER_NAME}"/>
 
 		<echo message="Removing Docker Container and Image"/>	
 		<remove-docker-container container-name="${CONTAINER_NAME}"/>
-		<remove-docker-image image-name="${IMAGE_NAME}"/>
+		<remove-docker-image image-name="${IMAGE_NAME}"/> -->
 	</target>
 </project>
 	
