@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:extns="http://www.example.org/Books" xmlns:extns1="http://tns.tibco.com/bw/REST" xmlns:extns2="http://www.example.org/Books/REST/1411989492608/ConceptSchema" xmlns:extns3="http://www.example.org/Events" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://www.example.org/Books/REST/1411989492608" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Books" targetNamespace="http://www.example.org/Books/REST/1411989492608">
+<wsdl:definitions xmlns:extns="http://www.example.org/Books" xmlns:extns1="http://tns.tibco.com/bw/REST" xmlns:extns2="http://www.example.org/Books/REST/1411989492608/ConceptSchema" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://www.example.org/Books/REST/1411989492608" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Books" targetNamespace="http://www.example.org/Books/REST/1411989492608">
   <wsdl:import location="../Schemas/Books.xsd" namespace="http://www.example.org/Books"/>
   <wsdl:import location="../Schemas/RESTSchema.xsd" namespace="http://tns.tibco.com/bw/REST"/>
     <wsdl:import namespace="http://www.example.org/Books/REST/1411989492608/ConceptSchema"/>
-    <wsdl:import namespace="http://www.example.org/Events"/>
     <wsdl:message name="postRequest">
     <wsdl:part element="extns:Books" name="item"/>
     <wsdl:part element="extns1:httpHeaders" name="httpHeaders" tibex:source="bw.rest"/>
@@ -73,9 +72,6 @@
     <wsdl:part element="extns1:httpHeaders" name="httpHeaders" tibex:source="bw.rest"/>
     <wsdl:part element="extns2:Book1Parameters" name="parameters" tibex:source="bw.rest"/>
   </wsdl:message>
-    <wsdl:message name="getResponse2">
-    <wsdl:part element="extns3:Events" name="item"/>
-  </wsdl:message>
     <wsdl:message name="get4XXFaultMessage2">
     <wsdl:part element="extns1:client4XXError" name="clientError"/>
   </wsdl:message>
@@ -117,14 +113,5 @@
       <wsdl:fault message="tns:delete4XXFaultMessage" name="clientFault"/>
       <wsdl:fault message="tns:delete5XXFaultMessage" name="serverFault"/>
     </wsdl:operation>
-  </wsdl:portType>
-    <wsdl:portType name="Book1" tibex:source="bw.rest">
-    <wsdl:documentation/>
-    <wsdl:operation name="get">
-      <wsdl:input message="tns:getRequest2" name="getInput"/>
-      <wsdl:output message="tns:getResponse2" name="getOutput"/>
-      <wsdl:fault message="tns:get4XXFaultMessage2" name="clientFault"/>
-      <wsdl:fault message="tns:get5XXFaultMessage2" name="serverFault"/>
-    </wsdl:operation>
-  </wsdl:portType>
+  </wsdl:portType>
 </wsdl:definitions>

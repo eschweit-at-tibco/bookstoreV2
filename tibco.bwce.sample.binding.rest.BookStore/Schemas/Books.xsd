@@ -7,10 +7,13 @@
     		<element minOccurs="0" name="name" type="string"/>
     		<element minOccurs="0" name="description" type="string"/>
     		<element minOccurs="0" name="authorName" type="string"/>
-    		<element minOccurs="0" name="releaseDate" type="date"/>
-    		<element minOccurs="0" name="vintage" type="boolean"/>
-    		<element minOccurs="0" name="signed" type="boolean"/>
-    		<element minOccurs="0" name="price" type="float"/>
+    		<element minOccurs="0" name="releaseYear">
+    			<simpleType>
+    				<restriction base="int">
+    					<minInclusive value="1650"></minInclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
     	</sequence>
     </complexType>
 

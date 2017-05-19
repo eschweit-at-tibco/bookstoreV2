@@ -5,9 +5,6 @@
   "apis" : [ {
     "path" : "/Books",
     "description" : null
-  }, {
-    "path" : "/Events",
-    "description" : null
   } ],
   "authorizations" : { }
 }

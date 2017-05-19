@@ -105,49 +105,9 @@
       "consumes" : [ "application/json" ],
       "produces" : [ "application/json" ]
     } ]
-  }, {
-    "path" : "/book/{ISBN}/events",
-    "description" : "",
-    "operations" : [ {
-      "method" : "GET",
-      "nickname" : "getBook",
-      "type" : "Events",
-      "parameters" : [ {
-        "paramType" : "path",
-        "name" : "ISBN",
-        "description" : "",
-        "type" : "string",
-        "required" : false,
-        "allowMultiple" : false
-      } ],
-      "summary" : null,
-      "notes" : null,
-      "responseMessages" : [ {
-        "code" : 503,
-        "message" : "Service Unavailable"
-      }, {
-        "code" : 200,
-        "message" : "OK"
-      } ],
-      "consumes" : [ "application/json" ],
-      "produces" : [ "application/json" ]
-    } ]
   } ],
   "authorizations" : { },
   "models" : {
-    "Events" : {
-      "id" : "Events",
-      "type" : "object",
-      "properties" : {
-        "Event" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "Event",
-            "uniqueItems" : false
-          }
-        }
-      }
-    },
     "Book" : {
       "id" : "Book",
       "type" : "object",
@@ -164,42 +124,8 @@
         "authorName" : {
           "type" : "string"
         },
-        "releaseDate" : {
-          "type" : "string",
-          "format" : "date"
-        },
-        "vintage" : {
-          "type" : "boolean"
-        },
-        "signed" : {
-          "type" : "boolean"
-        },
-        "price" : {
-          "type" : "number"
-        }
-      }
-    },
-    "Event" : {
-      "id" : "Event",
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "type" : "string"
-        },
-        "summary" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "authorName" : {
-          "type" : "string"
-        },
-        "bookIsbn" : {
-          "type" : "string"
-        },
-        "date" : {
-          "type" : "string"
+        "releaseYear" : {
+          "type" : "integer"
         }
       }
     },
