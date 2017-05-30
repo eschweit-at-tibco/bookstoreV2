@@ -298,19 +298,11 @@
                         <element maxOccurs="1" minOccurs="1" name="name"
                             nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="1"
-                            name="name2" nillable="true" type="string"/>
-                        <element maxOccurs="1" minOccurs="1"
                             name="description" nillable="true" type="string"/>
-                        <element maxOccurs="1" minOccurs="1"
-                            name="description2" nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="1"
                             name="authorName" nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="1"
-                            name="authorName2" nillable="true" type="string"/>
-                        <element maxOccurs="1" minOccurs="1"
                             name="releaseYear" nillable="true" type="int"/>
-                        <element maxOccurs="1" minOccurs="1"
-                            name="releaseYear2" nillable="true" type="int"/>
                         <element maxOccurs="1" minOccurs="1" name="isbn"
                             nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="0"
@@ -727,7 +719,7 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activity/@activity/@activities.2"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.2"/>
 
                                     <layoutConstraint
                                     x="19"
@@ -752,7 +744,7 @@
 
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activity/@activity"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity"/>
 
                                     <layoutConstraint
                                     height="108"
@@ -830,7 +822,7 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activity/@activity/@activities.0"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.0"/>
 
                                     <layoutConstraint
                                     height="24"
@@ -885,7 +877,7 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
 
-                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activity/@activity/@activities.1"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@activities.1"/>
 
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
@@ -1796,7 +1788,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.3/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="118"
+                                    height="125"
                                     width="545" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -2568,7 +2560,7 @@
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activity/@activity/@links/@children.0"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.0"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
@@ -2579,7 +2571,7 @@
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activity/@activity/@links/@children.1"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4/@activity/@activities.1/@activity/@activity/@links/@children.1"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
@@ -2918,15 +2910,16 @@
                                 </tibex:activityExtension>
                             </bpws:extensionActivity>
                             <bpws:scope name="ForEach"
-                                tibex:group="foreach"
-                                tibex:indexToGlobal="false" tibex:xpdlId="065ef81b-7278-43ee-93fd-be01af3cfdf9">
+                                tibex:group="foreach" tibex:xpdlId="065ef81b-7278-43ee-93fd-be01af3cfdf9">
                                 <bpws:targets>
                                     <bpws:target linkName="AssignToForEach"/>
                                 </bpws:targets>
                                 <bpws:sources>
                                     <bpws:source linkName="ForEachToaddBooksOut"/>
                                 </bpws:sources>
-                                <bpws:forEach counterName="index"
+                                <bpws:sequence name="sequence" tibex:group="foreach">
+                                    <bpws:empty name="GroupInit" tibex:group="groupInit"/>
+                                    <bpws:forEach counterName="index"
                                     name="forEach" parallel="no" tibex:group="foreach">
                                     <tibex:DesignExpression name="final">
                                     <tibex:expression
@@ -2949,13 +2942,15 @@
                                     <bpws:source linkName="GroupStartToJDBCUpdate"/>
                                     </bpws:sources>
                                     </bpws:empty>
-                                    <bpws:empty name="GroupEnd"
+                                    <bpws:empty
+                                    name="GroupEnd"
                                     tibex:group="groupEnd" tibex:xpdlId="670f6a12-a340-43c2-bc91-4275e16bbd2c">
                                     <bpws:targets>
                                     <bpws:target linkName="JDBCUpdateToGroupEnd"/>
                                     </bpws:targets>
                                     </bpws:empty>
                                     <bpws:extensionActivity>
+
                                     <tibex:activityExtension
                                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+61f76f17-e519-4c59-a608-07f138a8479a+input&quot; xmlns:tns1=&quot;http://www.example.org/Books&quot; xmlns:tns2=&quot;http://xmlns.example.com/20140929140236&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;index&quot;/>&lt;xsl:param name=&quot;addBooks&quot;/>&lt;xsl:template name=&quot;addBooks-input&quot; match=&quot;/&quot;>&lt;tns:jdbcUpdateActivityInput>&lt;isbn>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:isbn)&quot;>&lt;xsl:value-of select=&quot;$addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:isbn&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/isbn>&lt;name>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:name)&quot;>&lt;xsl:value-of select=&quot;$addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:name&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/name>&lt;description>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:description)&quot;>&lt;xsl:value-of select=&quot;$addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:description&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/description>&lt;authorName>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:authorName)&quot;>&lt;xsl:value-of select=&quot;$addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:authorName&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/authorName>&lt;releaseYear>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:releaseYear)&quot;>&lt;xsl:value-of select=&quot;$addBooks/parameters/tns2:addBooksRequest/tns1:Book[$index]/tns1:releaseYear&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/releaseYear>&lt;/tns:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
@@ -3021,7 +3016,8 @@
                                     </bpws:extensionActivity>
                                     </bpws:flow>
                                     </bpws:scope>
-                                </bpws:forEach>
+                                    </bpws:forEach>
+                                </bpws:sequence>
                             </bpws:scope>
                         </bpws:flow>
                     </bpws:scope>
@@ -3277,7 +3273,7 @@
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+a3a36799-77f4-4471-9d52-b5927db93771+input&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:tns1=&quot;http://www.example.org/Books&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;updateBook&quot;/>&lt;xsl:template name=&quot;updateBook-input&quot; match=&quot;/&quot;>&lt;tns:jdbcUpdateActivityInput>&lt;name>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:name)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:name&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/name>&lt;name2>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:name)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:name&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/name2>&lt;description>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:description)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:description&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/description>&lt;description2>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:description)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:description&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/description2>&lt;authorName>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:authorName)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:authorName&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/authorName>&lt;authorName2>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:authorName)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:authorName&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/authorName2>&lt;releaseYear>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:releaseYear)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:releaseYear&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/releaseYear>&lt;releaseYear2>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:releaseYear)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:releaseYear&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/releaseYear2>&lt;isbn>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:isbn)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:isbn&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/isbn>&lt;/tns:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+a3a36799-77f4-4471-9d52-b5927db93771+input&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:tns1=&quot;http://www.example.org/Books&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;updateBook&quot;/>&lt;xsl:template name=&quot;updateBook-input&quot; match=&quot;/&quot;>&lt;tns:jdbcUpdateActivityInput>&lt;name>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:name)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:name&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/name>&lt;description>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:description)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:description&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/description>&lt;authorName>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:authorName)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:authorName&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/authorName>&lt;releaseYear>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:releaseYear)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:releaseYear&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/releaseYear>&lt;isbn>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($updateBook/parameters/tns1:Book/tns1:isbn)&quot;>&lt;xsl:value-of select=&quot;$updateBook/parameters/tns1:Book/tns1:isbn&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/isbn>&lt;/tns:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="updateBook-input"
                                     name="updateBook"
@@ -3291,7 +3287,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+a3a36799-77f4-4471-9d52-b5927db93771+input&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:tns1=&quot;http://www.example.org/Books&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;updateBook.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;updateBook-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcUpdateActivityInput>&#xa;            &lt;name>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:name)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:name&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/name>&#xa;            &lt;name2>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:name)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:name&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/name2>&#xa;            &lt;description>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:description)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:description&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/description>&#xa;            &lt;description2>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:description)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:description&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/description2>&#xa;            &lt;authorName>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:authorName)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:authorName&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/authorName>&#xa;            &lt;authorName2>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:authorName)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:authorName&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/authorName2>&#xa;            &lt;releaseYear>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:releaseYear)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:releaseYear&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/releaseYear>&#xa;            &lt;releaseYear2>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:releaseYear)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:releaseYear&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/releaseYear2>&#xa;            &lt;isbn>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:isbn)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:isbn&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/isbn>&#xa;        &lt;/tns:jdbcUpdateActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+a3a36799-77f4-4471-9d52-b5927db93771+input&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:tns1=&quot;http://www.example.org/Books&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;updateBook.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;updateBook-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:jdbcUpdateActivityInput>&#xa;            &lt;name>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:name)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:name&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/name>&#xa;            &lt;description>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:description)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:description&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/description>&#xa;            &lt;authorName>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:authorName)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:authorName&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/authorName>&#xa;            &lt;releaseYear>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:releaseYear)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:releaseYear&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/releaseYear>&#xa;            &lt;isbn>&#xa;                &lt;xsl:choose>&#xa;                    &lt;xsl:when test=&quot;exists($updateBook.parameters/tns1:isbn)&quot;>&#xa;                        &lt;xsl:value-of select=&quot;$updateBook.parameters/tns1:isbn&quot;/>&#xa;                    &lt;/xsl:when>&#xa;                    &lt;xsl:otherwise>&#xa;                        &lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&#xa;                    &lt;/xsl:otherwise>&#xa;                &lt;/xsl:choose>&#xa;            &lt;/isbn>&#xa;        &lt;/tns:jdbcUpdateActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -3305,7 +3301,7 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
                                     <value
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="UPDATE &quot;public&quot;.&quot;books&quot;&#xa;  SET &quot;name&quot; = ? WHEN ? NOT NULL,&#xa;      &quot;description&quot; = ? WHEN ? NOT NULL,&#xa;      &quot;authorName&quot; = ? WHEN ? NOT NULL,&#xa;      &quot;releaseYear&quot; = ? WHEN ? NOT NULL,&#xa;  WHERE &quot;isbn&quot; = ?&#xa;  IN (&quot;name&quot;, &quot;description&quot;, &quot;authorName&quot;, &quot;releaseYear&quot;)"
+                                    sqlStatement="UPDATE &quot;public&quot;.&quot;books&quot;&#xa;  SET &quot;name&quot; = COALESCE(?, &quot;name&quot;),&#xa;      &quot;description&quot; = COALESCE(?, &quot;description&quot;),&#xa;      &quot;authorName&quot; = COALESCE(?, &quot;authorName&quot;),&#xa;      &quot;releaseYear&quot; = COALESCE(?, &quot;releaseYear&quot;)&#xa;  WHERE &quot;isbn&quot; = ?"
                                     timeout="10" xsi:type="jdbcPalette:JDBCUpdateActivity">
 
                                     <PreparedParameters
@@ -3314,31 +3310,15 @@
 
                                     <PreparedParameters
                                     DataType="12"
-                                    DataTypeDisplayValue="VARCHAR" ParameterName="name2"/>
-
-                                    <PreparedParameters
-                                    DataType="12"
                                     DataTypeDisplayValue="VARCHAR" ParameterName="description"/>
-
-                                    <PreparedParameters
-                                    DataType="12"
-                                    DataTypeDisplayValue="VARCHAR" ParameterName="description2"/>
 
                                     <PreparedParameters
                                     DataType="12"
                                     DataTypeDisplayValue="VARCHAR" ParameterName="authorName"/>
 
                                     <PreparedParameters
-                                    DataType="12"
-                                    DataTypeDisplayValue="VARCHAR" ParameterName="authorName2"/>
-
-                                    <PreparedParameters
                                     DataType="4"
                                     DataTypeDisplayValue="INTEGER" ParameterName="releaseYear"/>
-
-                                    <PreparedParameters
-                                    DataType="4"
-                                    DataTypeDisplayValue="INTEGER" ParameterName="releaseYear2"/>
 
                                     <PreparedParameters
                                     DataType="12"
