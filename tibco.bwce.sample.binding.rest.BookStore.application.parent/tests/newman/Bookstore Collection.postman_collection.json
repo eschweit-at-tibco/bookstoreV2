@@ -230,9 +230,12 @@
 							"script": {
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 500\"] = responseCode.code === 500;",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
 									"",
+									"var receivedData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Received an empty object\"] = (JSON.stringify(receivedData) === JSON.stringify({}));",
 									"",
 									"",
 									""
