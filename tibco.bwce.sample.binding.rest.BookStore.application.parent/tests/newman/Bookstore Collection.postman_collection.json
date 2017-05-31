@@ -155,7 +155,7 @@
 							"script": {
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 503\"] = responseCode.code === 503;"									""
+									"tests[\"Status code is 503\"] = responseCode.code === 503;"
 								]
 							}
 						}
