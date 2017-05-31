@@ -155,20 +155,7 @@
 							"script": {
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
-									"",
-									"var receivedData = JSON.parse(responseBody);",
-									"var expectedData = JSON.parse('{\"Book\":[{\\",
-									"  \"isbn\": \"978-0140177398\",\\",
-									"  \"name\": \"Of Mice and Men\",\\",
-									"  \"description\": \"A classic by John Steinbeck\",\\",
-									"  \"authorName\": \"John Steinbeck\",\\",
-									"  \"releaseYear\": 1993\\",
-									"}]}');",
-									"",
-									"tests[\"Put twice on the same book is OK\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
-									""
+									"tests[\"Status code is 503\"] = responseCode.code === 503;"									""
 								]
 							}
 						}
@@ -210,7 +197,7 @@
 									"var receivedData = JSON.parse(responseBody);",
 									"",
 									"tests[\"Received a Book structure\"] = (receivedData.Book !== undefined);",
-									"tests[\"Received the right number of entries\"] = (receivedData.Book.length === 2);"
+									"tests[\"Received the right number of entries\"] = (receivedData.Book.length === 1);"
 								]
 							}
 						}
