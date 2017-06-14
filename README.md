@@ -1,3 +1,3 @@
 # bookstore
 
-Clone this repository to run the bw-devops demonstration.
+Clone this repository to run the TIBCO BW DevOps demonstration.
