@@ -128,7 +128,7 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/book/978-0140177398",
+						"url": "{{base_url}}/books/978-0140177398",
 						"method": "GET",
 						"header": [
 							{
@@ -244,7 +244,7 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/book/955-0440177398",
+						"url": "{{base_url}}/books/955-0440177398",
 						"method": "GET",
 						"header": [
 							{
