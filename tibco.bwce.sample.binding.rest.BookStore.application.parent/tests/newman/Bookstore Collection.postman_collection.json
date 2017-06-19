@@ -24,7 +24,7 @@
 									"",
 									"var receivedData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Did not receive a Book structure\"] = (receivedData.Book === undefined);",
+									"tests[\"Did not receive a Books structure\"] = (receivedData.Books === undefined);",
 									""
 								]
 							}
@@ -62,13 +62,12 @@
 									"tests[\"Response time is less than 400ms\"] = responseTime < 400;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
-									"var expectedData = JSON.parse('{\"Book\":[{\\",
+									"var expectedData = JSON.parse('{\\",
 									"  \"isbn\": \"978-0140177398\",\\",
 									"  \"name\": \"Of Mice and Men\",\\",
 									"  \"description\": \"A classic by John Steinbeck\",\\",
 									"  \"authorName\": \"John Steinbeck\",\\",
-									"  \"releaseYear\": 1993\\",
-									"}]}');",
+									"  \"releaseYear\": 1993 }');",
 									"",
 									"tests[\"Put books has stored the right values\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
 									""
