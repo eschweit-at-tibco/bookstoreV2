@@ -1,31 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_7bgyYEeyEeSkBPbNLcPWbg" targetNamespace="http://tns.tibco.com/bw/composite/tibco.bwce.sample.binding.rest.BookStore" name="tibco.bwce.sample.binding.rest.BookStore" compositeext:version="1.0.0" compositeext:description="Using REST to Manage Books for a Bookstore" compositeext:formatVersion="2">
-  <sca:service xmi:id="_TTYvAEfKEeSkBPbNLcPWbg" name="Books" promote="ComponentBooks/Books">
-    <sca:interface.wsdl xmi:id="_TT0M0EfKEeSkBPbNLcPWbg" interface="http://www.example.org/Books/REST/1411989492608#wsdl.interface(Books)" scaext:wsdlLocation="../Service%20Descriptors/Books.wsdl"/>
-    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TUs9oEfKEeSkBPbNLcPWbg" name="RestService" path="/books" docBasePath="http://localhost:7777/tibco.bwce.sample.binding.rest.BookStore" docResourcePath="Books" connector="tibco.bwce.sample.binding.rest.BookStore.Books" structuredData="true">
-      <operation xmi:id="_TdqFUEfKEeSkBPbNLcPWbg" operationName="post" nickname="postBooks" httpMethod="POST">
-        <responseStatus xmi:id="_3c9lkJBXEeadY9iADHMKpQ" statusCode="503" reasonPhrase="Service Unavailable"/>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:xmlns.example.com_20140929140236="http://xmlns.example.com/20140929140236" xmi:id="_7bgyYEeyEeSkBPbNLcPWbg" targetNamespace="http://tns.tibco.com/bw/composite/tibco.bwce.sample.binding.rest.BookStore" name="tibco.bwce.sample.binding.rest.BookStore" compositeext:version="1.0.0" compositeext:description="Using REST to Manage Books for a Bookstore" compositeext:formatVersion="2">
+  <sca:service xmi:id="_Qvn0kFJTEeekqd6GUXfQbw" name="books1" promote="ComponentBooksV2/books">
+    <sca:interface.wsdl xmi:id="_QvuiQFJTEeekqd6GUXfQbw" interface="http://xmlns.example.com/20170616051652PLT#wsdl.interface(books)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_QvyMoFJTEeekqd6GUXfQbw" name="RestService2" path="/books" docBasePath="http://localhost:7777/tibco.bwce.sample.binding.rest.BookStore" docResourcePath="Books" basePath="/" connector="tibco.bwce.sample.binding.rest.BookStore.Books" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Books.swagger.json">
+      <operation xmi:id="_QvyzsFJTEeekqd6GUXfQbw" operationName="post" httpMethod="POST" notes="Create a set of books." responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
       </operation>
-      <operation xmi:id="_TdqFUUfKEeSkBPbNLcPWbg" operationName="get" nickname="getBooks" httpMethod="GET"/>
-      <parameters xmi:id="_TkP1gEfKEeSkBPbNLcPWbg"/>
-      <clientFormat>JSON</clientFormat>
+      <operation xmi:id="_QvzawFJTEeekqd6GUXfQbw" operationName="get" httpMethod="GET" responseStyle="element">
+        <clientFormat>json</clientFormat>
+      </operation>
+      <parameters xmi:id="_Qv7WkFJTEeekqd6GUXfQbw"/>
     </scaext:binding>
-    <scact:bindingAdjunct xmi:id="_TjdyYEfKEeSkBPbNLcPWbg" bindingName="RestService"/>
+    <scact:bindingAdjunct xmi:id="_QvzawVJTEeekqd6GUXfQbw" bindingName="RestService2"/>
   </sca:service>
-  <sca:service xmi:id="_Iz_QUErdEeS93bY8WesVyA" name="Book" promote="ComponentBooks/Book">
-    <sca:interface.wsdl xmi:id="_I0wFUErdEeS93bY8WesVyA" interface="http://www.example.org/Books/REST/1411989492608#wsdl.interface(Book)" scaext:wsdlLocation="../Service%20Descriptors/Books.wsdl"/>
-    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_I1NYUErdEeS93bY8WesVyA" name="RestService1" path="/book/{ISBN}" docBasePath="http://localhost:7777/tibco.bwce.sample.binding.rest.BookStore" docResourcePath="Books" connector="tibco.bwce.sample.binding.rest.BookStore.Books" structuredData="true">
-      <operation xmi:id="_I1N_YErdEeS93bY8WesVyA" operationName="get" nickname="getBook" httpMethod="GET" statusLines="__WzaoE1BEeSYSaTTdRUCfg __2CUUE1BEeSYSaTTdRUCfg"/>
-      <operation xmi:id="_I1N_YUrdEeS93bY8WesVyA" operationName="put" nickname="putBook" httpMethod="PUT"/>
-      <operation xmi:id="_I1N_YkrdEeS93bY8WesVyA" operationName="delete" nickname="deleteBook" httpMethod="DELETE"/>
-      <parameters xmi:id="_I1iIcErdEeS93bY8WesVyA">
-        <parameterMapping xmi:id="_I1lLwErdEeS93bY8WesVyA" parameterName="ISBN" parameterType="Path"/>
+  <sca:service xmi:id="_TA_aQlJTEeekqd6GUXfQbw" name="books11" promote="ComponentBooksV2/books1">
+    <sca:interface.wsdl xmi:id="_TBABUVJTEeekqd6GUXfQbw" interface="http://xmlns.example.com/20170616051652PLT#wsdl.interface(books1)" scaext:wsdlLocation="../Processes/tibco/bwce/sample/binding/rest/bookstore/BooksV2.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TBAoYFJTEeekqd6GUXfQbw" name="RestService3" path="/books/{isbn}" docBasePath="http://localhost:7777/tibco.bwce.sample.binding.rest.BookStore" docResourcePath="Books" basePath="/" connector="tibco.bwce.sample.binding.rest.BookStore.Books" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Books.swagger.json">
+      <operation xmi:id="_TBAoYVJTEeekqd6GUXfQbw" operationName="get" httpMethod="GET" notes="Get the detailed description of a book by ISBN" responseStyle="element">
+        <clientFormat>json</clientFormat>
+      </operation>
+      <operation xmi:id="_TBAoYlJTEeekqd6GUXfQbw" operationName="put" httpMethod="PUT" notes="Modify the details of a book based on its ISBN" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_TBAoY1JTEeekqd6GUXfQbw" operationName="delete" httpMethod="DELETE" notes="Delete a book based on its ISBN." responseStyle="element">
+        <clientFormat>json</clientFormat>
+      </operation>
+      <parameters xmi:id="_TBB2gFJTEeekqd6GUXfQbw">
+        <parameterMapping xmi:id="_TBB2gVJTEeekqd6GUXfQbw" parameterName="isbn" parameterType="Path" dataType="string" required="true" description="ISBN - International Standard Book Number"/>
       </parameters>
-      <clientFormat>JSON</clientFormat>
-      <statusLines xmi:id="__WzaoE1BEeSYSaTTdRUCfg" statusCode="200" reasonPhrase="OK"/>
-      <statusLines xmi:id="__2CUUE1BEeSYSaTTdRUCfg" statusCode="503" reasonPhrase="Service Unavailable"/>
     </scaext:binding>
-    <scact:bindingAdjunct xmi:id="_I1dP8ErdEeS93bY8WesVyA" bindingName="RestService1"/>
+    <scact:bindingAdjunct xmi:id="_TBAoZFJTEeekqd6GUXfQbw" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_Q6HIIFJlEee28fULZcBVyg" name="BooksDB" promote="ComponentBooksDBService/BooksDB">
+    <sca:interface.wsdl xmi:id="_Q6s-AFJlEee28fULZcBVyg" interface="http://xmlns.example.com/20140929140236#wsdl.interface(BooksDB)" scaext:wsdlLocation="../Service%20Descriptors/BooksDBService.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_gAWxUFSQEee28fULZcBVyg" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/2de56d4b83ec45648cf35a5084c55050/SOAPServiceBinding" portTypeQName="xmlns.example.com_20140929140236:BooksDB" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+      <bindingType xmi:id="_gAla0FSQEee28fULZcBVyg"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_puaLAFSQEee28fULZcBVyg" endpointURI="/SOAPServiceBinding/booksDB/" httpConnector="tibco.bwce.sample.binding.rest.BookStore.Books"/>
+      <operationConfiguration xmi:id="_gApFMFSQEee28fULZcBVyg" operationName="addBooks" action="addBooks" actionNeeded="true">
+        <bindingType xmi:id="_gApFMVSQEee28fULZcBVyg"/>
+        <messageConfiguration xmi:id="_gApFMlSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:addBooksRequest" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApFM1SQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBooks"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gApFNFSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:addBooksResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApFNVSQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBookCount"/>
+        </messageConfiguration>
+        <context xmi:id="_gAqTUFSQEee28fULZcBVyg">
+          <inputMapping xmi:id="_gAq6YFSQEee28fULZcBVyg"/>
+          <outputMapping xmi:id="_gAq6YVSQEee28fULZcBVyg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gApsQFSQEee28fULZcBVyg" operationName="getAllBooks" action="getAllBooks" actionNeeded="true">
+        <bindingType xmi:id="_gApsQVSQEee28fULZcBVyg"/>
+        <messageConfiguration xmi:id="_gApsQlSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:getAllBooksRequest" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsQ1SQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBookCount"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gApsRFSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:getAllBooksResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsRVSQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBooks"/>
+        </messageConfiguration>
+        <context xmi:id="_gAq6YlSQEee28fULZcBVyg">
+          <inputMapping xmi:id="_gAq6Y1SQEee28fULZcBVyg"/>
+          <outputMapping xmi:id="_gAq6ZFSQEee28fULZcBVyg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gApsRlSQEee28fULZcBVyg" operationName="getBookByISBN" action="getBookByISBN" actionNeeded="true">
+        <bindingType xmi:id="_gApsR1SQEee28fULZcBVyg"/>
+        <messageConfiguration xmi:id="_gApsSFSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:getBookByISBNRequest" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsSVSQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:ISBN"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gApsSlSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:getBookByISBNResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsS1SQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBooks"/>
+        </messageConfiguration>
+        <context xmi:id="_gAq6ZVSQEee28fULZcBVyg">
+          <inputMapping xmi:id="_gAq6ZlSQEee28fULZcBVyg"/>
+          <outputMapping xmi:id="_gAq6Z1SQEee28fULZcBVyg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gApsTFSQEee28fULZcBVyg" operationName="updateBook" action="updateBook" actionNeeded="true">
+        <bindingType xmi:id="_gApsTVSQEee28fULZcBVyg"/>
+        <messageConfiguration xmi:id="_gApsTlSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:updateBookRequest" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsT1SQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBook"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gApsUFSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:updateBookResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsUVSQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBookCount"/>
+        </messageConfiguration>
+        <context xmi:id="_gAq6aFSQEee28fULZcBVyg">
+          <inputMapping xmi:id="_gAq6aVSQEee28fULZcBVyg"/>
+          <outputMapping xmi:id="_gAq6alSQEee28fULZcBVyg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_gApsUlSQEee28fULZcBVyg" operationName="deleteBook" action="deleteBook" actionNeeded="true">
+        <bindingType xmi:id="_gApsU1SQEee28fULZcBVyg"/>
+        <messageConfiguration xmi:id="_gApsVFSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:deleteBookRequest" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsVVSQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:ISBN"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gApsVlSQEee28fULZcBVyg" messageQName="xmlns.example.com_20140929140236:deleteBookResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gApsV1SQEee28fULZcBVyg" partName="parameters" partElementName="xmlns.example.com_20140929140236:DBBookCount"/>
+        </messageConfiguration>
+        <context xmi:id="_gAq6a1SQEee28fULZcBVyg">
+          <inputMapping xmi:id="_gAq6bFSQEee28fULZcBVyg"/>
+          <outputMapping xmi:id="_gAq6bVSQEee28fULZcBVyg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_gArhcFSQEee28fULZcBVyg" bindingName="SOAPServiceBinding"/>
   </sca:service>
   <sca:property xmi:id="_9uxOcEeyEeSkBPbNLcPWbg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_9v9hQEeyEeSkBPbNLcPWbg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
@@ -39,16 +118,22 @@
   <sca:property xmi:id="_PKZs8Ee1EeSkBPbNLcPWbg" name="dbUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_cYKcsGbkEeWUZJX06Fex6w" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_JZ5rkDxXEeezEapjm-b2bw" name="ec_ServiceUnavailable" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:component xmi:id="_TRR2MEfKEeSkBPbNLcPWbg" name="ComponentBooks" compositeext:version="1.0.0.qualifier">
-    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_TRR2MUfKEeSkBPbNLcPWbg" processName="tibco.bwce.sample.binding.rest.bookstore.Books"/>
-    <sca:service xmi:id="_TS94QEfKEeSkBPbNLcPWbg" name="Books">
-      <sca:interface.wsdl xmi:id="_TTT2gEfKEeSkBPbNLcPWbg" interface="http://www.example.org/Books/REST/1411989492608#wsdl.interface(Books)" scaext:wsdlLocation="../Service%20Descriptors/Books.wsdl"/>
+  <sca:component xmi:id="_aBA78DugEeezEapjm-b2bw" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_aBA78TugEeezEapjm-b2bw" processName="tibco.bwce.sample.binding.rest.bookstore.db.Activator"/>
+  </sca:component>
+  <sca:component xmi:id="_AgZM4FJTEeekqd6GUXfQbw" name="ComponentBooksV2" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_AgZM4VJTEeekqd6GUXfQbw" processName="tibco.bwce.sample.binding.rest.bookstore.BooksV2"/>
+    <sca:service xmi:id="_QvkKMFJTEeekqd6GUXfQbw" name="books">
+      <sca:interface.wsdl xmi:id="_QvkxQFJTEeekqd6GUXfQbw" interface="http://xmlns.example.com/20170616051652PLT#wsdl.interface(books)"/>
     </sca:service>
-    <sca:service xmi:id="_IzycAErdEeS93bY8WesVyA" name="Book">
-      <sca:interface.wsdl xmi:id="_Iz80EErdEeS93bY8WesVyA" interface="http://www.example.org/Books/REST/1411989492608#wsdl.interface(Book)" scaext:wsdlLocation="../Service%20Descriptors/Books.wsdl"/>
+    <sca:service xmi:id="_TA_aQFJTEeekqd6GUXfQbw" name="books1">
+      <sca:interface.wsdl xmi:id="_TA_aQVJTEeekqd6GUXfQbw" interface="http://xmlns.example.com/20170616051652PLT#wsdl.interface(books1)" scaext:wsdlLocation="../Processes/tibco/bwce/sample/binding/rest/bookstore/BooksV2.bwp"/>
     </sca:service>
   </sca:component>
-  <sca:component xmi:id="_aBA78DugEeezEapjm-b2bw" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
-    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_aBA78TugEeezEapjm-b2bw" processName="tibco.bwce.sample.binding.rest.bookstore.Activator"/>
+  <sca:component xmi:id="_2vo_UFJkEee28fULZcBVyg" name="ComponentBooksDBService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_2vo_UVJkEee28fULZcBVyg" processName="tibco.bwce.sample.binding.rest.bookstore.db.BooksDBService"/>
+    <sca:service xmi:id="_Q6C2sFJlEee28fULZcBVyg" name="BooksDB">
+      <sca:interface.wsdl xmi:id="_Q6EE0FJlEee28fULZcBVyg" interface="http://xmlns.example.com/20140929140236#wsdl.interface(BooksDB)"/>
+    </sca:service>
   </sca:component>
 </sca:composite>

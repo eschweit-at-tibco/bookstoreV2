@@ -1,0 +1,5 @@
+{"records": [{
+    "jsonSchemaLocation": "/tibco.bwce.sample.binding.rest.BookStore/Service Descriptors/Books.swagger.json",
+    "conversionType": "generated",
+    "xsdSchemaTargetNamespace": "/T1497590320427Converted/JsonSchema"
+}]}

@@ -1,0 +1,206 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Bookstore",
+    "x-lastModified": "Jun 07, 2017 00:15AM PST",
+    "description": "An API that enables you to create, query, modify, and delete books."
+  },
+  "paths": {
+    "/books/{isbn}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "isbn",
+            "in": "path",
+            "description": "ISBN - International Standard Book Number",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "description": "Get the detailed description of a book by ISBN"
+      },
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Details of a book",
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          },
+          {
+            "name": "isbn",
+            "in": "path",
+            "description": "ISBN - International Standard Book Number",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "description": "Modify the details of a book based on its ISBN",
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/BookCount"
+            },
+            "examples": {
+              "application/json": 1
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "isbn",
+            "in": "path",
+            "description": "ISBN - International Standard Book Number",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "description": "Delete a book based on its ISBN."
+      }
+    },
+    "/books": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Books"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "List of books to create",
+            "schema": {
+              "$ref": "#/definitions/Books"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Create a set of books."
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Books"
+            }
+          }
+        },
+        "parameters": []
+      }
+    }
+  },
+  "definitions": {
+    "Books": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "isbn": {
+            "type": "string",
+            "default": "0140177398"
+          },
+          "name": {
+            "type": "string",
+            "default": "Of Mice and Men"
+          },
+          "description": {
+            "type": "string",
+            "default": "A controversial tale of friendship and tragedy during the Great Depression."
+          },
+          "authorName": {
+            "type": "string",
+            "default": "John Steinbeck"
+          },
+          "releaseYear": {
+            "type": "integer",
+            "default": 1993
+          }
+        }
+      }
+    },
+    "Book": {
+      "type": "object",
+      "properties": {
+        "isbn": {
+          "type": "string",
+          "default": "0316769177",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "default": "The Catcher in the Rye",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "default": "J.D. Salinger's classic novel of teenage angst & rebellion.",
+          "required": false
+        },
+        "authorName": {
+          "type": "string",
+          "default": "J. D. Salinger",
+          "required": false
+        },
+        "releaseYear": {
+          "type": "integer",
+          "default": 1991,
+          "required": false
+        }
+      }
+    },
+    "BookCount": {
+      "type": "integer",
+      "default": 1
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1497590320427Converted/JsonSchema" xmlns:tns="/T1497590320427Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="BookCount" type="tns:BookCount"/>
+    <xs:simpleType name="BookCount">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+    <xs:element name="Book" type="tns:Book"/>
+    <xs:complexType name="Book">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="authorName" type="xs:string"/>
+            <xs:element minOccurs="0" name="isbn" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element minOccurs="0" name="releaseYear" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Books" type="tns:Books"/>
+    <xs:complexType name="Books">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Books">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="authorName" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isbn" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" type="xs:string"/>
+                        <xs:element minOccurs="0" name="releaseYear" type="xs:integer"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -58,4 +58,17 @@
 	</complexType>
 	<element name="server5XXError" type="tns:server5XXErrorType"/>
 
+    <element name="httpResponseHeaders" type="tns:httpTransportResponseHeaders"/>
+    <complexType name="httpTransportResponseHeaders">
+    <sequence>
+      <element form="unqualified" minOccurs="0" name="Content-Length" type="string"/>
+      <element form="unqualified" minOccurs="0" name="Connection" type="string"/>
+      <element form="unqualified" minOccurs="0" name="Pragma" type="string"/>
+      <element form="unqualified" minOccurs="0" name="StatusLine" type="string"/>
+      <element form="unqualified" minOccurs="0" name="Location" type="string"/>
+      <element form="unqualified" minOccurs="0" name="Set-Cookie" type="string"/>
+      <element form="unqualified" minOccurs="0" name="Content-Type" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="DynamicHeaders" type="tns:dynamicHeadersType"/>
+    </sequence>
+  </complexType>
 </schema>
