@@ -17,10 +17,12 @@
   <sca:service xmi:id="_TA_aQlJTEeekqd6GUXfQbw" name="books11" promote="ComponentBooksV2/books1">
     <sca:interface.wsdl xmi:id="_TBABUVJTEeekqd6GUXfQbw" interface="http://xmlns.example.com/20170616051652PLT#wsdl.interface(books1)" scaext:wsdlLocation="../Processes/tibco/bwce/sample/binding/rest/bookstore/BooksV2.bwp"/>
     <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TBAoYFJTEeekqd6GUXfQbw" name="RestService3" path="/books/{isbn}" docBasePath="http://localhost:7777/tibco.bwce.sample.binding.rest.BookStore" docResourcePath="Books" basePath="/" connector="tibco.bwce.sample.binding.rest.BookStore.Books" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Books.swagger.json">
-      <operation xmi:id="_TBAoYVJTEeekqd6GUXfQbw" operationName="get" httpMethod="GET" notes="Get the detailed description of a book by ISBN" responseStyle="element">
+      <operation xmi:id="_TBAoYVJTEeekqd6GUXfQbw" operationName="get" nickname="" httpMethod="GET" notes="Get the detailed description of a book by ISBN" responseStyle="element">
+        <responseStatus xmi:id="_KdAjAFTwEee28fULZcBVyg" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_ZRCYAFTwEee28fULZcBVyg" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
         <clientFormat>json</clientFormat>
       </operation>
-      <operation xmi:id="_TBAoYlJTEeekqd6GUXfQbw" operationName="put" httpMethod="PUT" notes="Modify the details of a book based on its ISBN" responseStyle="element" requestStyle="element">
+      <operation xmi:id="_TBAoYlJTEeekqd6GUXfQbw" operationName="put" nickname="" httpMethod="PUT" notes="Modify the details of a book based on its ISBN" responseStyle="element" requestStyle="element">
         <clientFormat>json</clientFormat>
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
@@ -34,7 +36,7 @@
     <scact:bindingAdjunct xmi:id="_TBAoZFJTEeekqd6GUXfQbw" bindingName="RestService3"/>
   </sca:service>
   <sca:service xmi:id="_Q6HIIFJlEee28fULZcBVyg" name="BooksDB" promote="ComponentBooksDBService/BooksDB">
-    <sca:interface.wsdl xmi:id="_Q6s-AFJlEee28fULZcBVyg" interface="http://xmlns.example.com/20140929140236#wsdl.interface(BooksDB)" scaext:wsdlLocation="../Service%20Descriptors/BooksDBService.wsdl"/>
+    <sca:interface.wsdl xmi:id="_Q6s-AFJlEee28fULZcBVyg" interface="http://xmlns.example.com/20140929140236#wsdl.interface(BooksDB)"/>
     <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_gAWxUFSQEee28fULZcBVyg" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/2de56d4b83ec45648cf35a5084c55050/SOAPServiceBinding" portTypeQName="xmlns.example.com_20140929140236:BooksDB" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/tibco.bwce.sample.binding.rest.BookStore/Service%20Descriptors/BooksDBService.wsdl">
       <bindingType xmi:id="_gAla0FSQEee28fULZcBVyg"/>
       <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_puaLAFSQEee28fULZcBVyg" endpointURI="/SOAPServiceBinding/booksDB/" httpConnector="tibco.bwce.sample.binding.rest.BookStore.Books"/>

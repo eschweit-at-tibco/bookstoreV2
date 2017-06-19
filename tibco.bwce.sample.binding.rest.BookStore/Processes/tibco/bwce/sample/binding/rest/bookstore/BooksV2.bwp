@@ -8,6 +8,7 @@
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
     xmlns:ns0="http://xmlns.example.com/20170616051652PLT"
     xmlns:ns1="http://xmlns.example.com/20140929140236"
+    xmlns:ns2="http://www.tibco.com/pe/WriteToLogActivitySchema"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -256,6 +257,11 @@
             <wsdl:message name="delete5XXFaultMessage">
                 <wsdl:part element="extns1:server5XXError" name="serverError"/>
             </wsdl:message>
+            <wsdl:message name="get404FaultMessage">
+                <wsdl:part name="client-404-NotFound"
+                    tibex:reasonPhrase="Not Found"
+                    tibex:statusCode="404" type="xsd:string"/>
+            </wsdl:message>
             <wsdl:portType name="books" tibex:bw.rest.apipath="/books"
                 tibex:bw.rest.basepath="BooksV2"
                 tibex:bw.rest.resource="Service Descriptors/Books.swagger.json"
@@ -288,6 +294,7 @@
                     <wsdl:output message="tns:getResponse1" name="getOutput"/>
                     <wsdl:fault message="tns:get4XXFaultMessage1" name="clientFault"/>
                     <wsdl:fault message="tns:get5XXFaultMessage1" name="serverFault"/>
+                    <wsdl:fault message="tns:get404FaultMessage" name="client-404-Fault"/>
                 </wsdl:operation>
                 <wsdl:operation name="put">
                     <wsdl:documentation/>
@@ -590,7 +597,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
 
                                     <layoutConstraint
-                                    height="113"
+                                    height="104"
                                     width="384"
                                     x="15" xsi:type="notation:Bounds"/>
                                     </children>
@@ -605,7 +612,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
 
                                     <layoutConstraint
-                                    height="137"
+                                    height="174"
                                     width="424" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -660,10 +667,13 @@
                                     fontName="Carlito"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
-                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <styles
+                                    restoreHeight="159"
+                                    restoreWidth="486"
+                                    restoreX="2" xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
                                     <layoutConstraint
-                                    height="157"
+                                    height="193"
                                     width="486"
                                     x="2" xsi:type="notation:Bounds"/>
                                     </children>
@@ -947,10 +957,10 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1"/>
                                     <layoutConstraint
-                                    height="160"
+                                    height="162"
                                     width="486"
                                     x="2"
-                                    xsi:type="notation:Bounds" y="157"/>
+                                    xsi:type="notation:Bounds" y="158"/>
                                     </children>
                                     <children type="4011">
                                     <children type="3012">
@@ -1288,10 +1298,10 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2"/>
                                     <layoutConstraint
-                                    height="233"
+                                    height="237"
                                     width="486"
                                     x="2"
-                                    xsi:type="notation:Bounds" y="320"/>
+                                    xsi:type="notation:Bounds" y="319"/>
                                     </children>
                                     <children type="4011">
                                     <children type="3012">
@@ -1629,10 +1639,10 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.3"/>
                                     <layoutConstraint
-                                    height="238"
+                                    height="242"
                                     width="486"
                                     x="2"
-                                    xsi:type="notation:Bounds" y="556"/>
+                                    xsi:type="notation:Bounds" y="555"/>
                                     </children>
                                     <children type="4011">
                                     <children type="3012">
@@ -1914,10 +1924,10 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.4"/>
                                     <layoutConstraint
-                                    height="163"
+                                    height="168"
                                     width="486"
                                     x="2"
-                                    xsi:type="notation:Bounds" y="797"/>
+                                    xsi:type="notation:Bounds" y="796"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -1928,7 +1938,8 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
-                                    height="994" width="561" xsi:type="notation:Bounds"/>
+                                    height="1034"
+                                    width="561" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -1942,7 +1953,7 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="1016"
+                                    <layoutConstraint height="1208"
                                     width="515" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
@@ -1952,7 +1963,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="1016" width="518" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="1208" width="518" xsi:type="notation:Bounds"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
@@ -1962,7 +1973,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="1040" width="518" x="1"
+                    <layoutConstraint height="1232" width="518" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -1971,7 +1982,7 @@
             </children>
             <styles fontName="Carlito" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="1092" width="860" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="1284" width="860" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -2222,9 +2233,9 @@
         <bpws:variable messageType="ns0:deleteResponse"
             name="deleteOut-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:addBooksRequest"
-            name="addBooks-input" sca-bpel:internal="true"/>
+            name="callAddBooks-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:addBooksResponse"
-            name="addBooks" sca-bpel:internal="true"/>
+            name="callAddBooks" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:getBookByISBNRequest"
             name="callGetBookByISBN-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:getBookByISBNResponse"
@@ -2237,7 +2248,7 @@
             name="callGetAllBooks-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:getAllBooksResponse"
             name="callGetAllBooks" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns0:get4XXFaultMessage"
+        <bpws:variable messageType="ns0:get4XXFaultMessage1"
             name="Reply-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns0:put4XXFaultMessage"
             name="Reply1-input" sca-bpel:internal="true"/>
@@ -2285,10 +2296,10 @@
                                 partnerLink="books" portType="ns0:books"
                                 tibex:xpdlId="3c37b607-f2c0-4568-bb0c-6effb62bbc0b" variable="postOut-input">
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20170616051652PLT" xmlns:tns1="/T1497590320427Converted/JsonSchema" version="2.0"&gt;&lt;xsl:param name="post"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns:postResponse&gt;&lt;item&gt;&lt;tns1:Books&gt;&lt;xsl:copy-of select="$post/item/tns1:Books/tns1:Books"/&gt;&lt;/tns1:Books&gt;&lt;/item&gt;&lt;/tns:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20170616051652PLT" xmlns:tns1="/T1497590320427Converted/JsonSchema" xmlns:tns2="http://xmlns.example.com/20140929140236" version="2.0"&gt;&lt;xsl:param name="post"/&gt;&lt;xsl:param name="callAddBooks"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns:postResponse&gt;&lt;item&gt;&lt;tns1:Books&gt;&lt;xsl:if test="$callAddBooks/parameters/tns2:DBBookCount/count gt 0"&gt;&lt;xsl:for-each select="$post/item/tns1:Books/tns1:Books"&gt;&lt;tns1:Books&gt;&lt;xsl:if test="tns1:authorName"&gt;&lt;tns1:authorName&gt;&lt;xsl:value-of select="tns1:authorName"/&gt;&lt;/tns1:authorName&gt;&lt;/xsl:if&gt;&lt;xsl:if test="tns1:isbn"&gt;&lt;tns1:isbn&gt;&lt;xsl:value-of select="tns1:isbn"/&gt;&lt;/tns1:isbn&gt;&lt;/xsl:if&gt;&lt;xsl:if test="tns1:name"&gt;&lt;tns1:name&gt;&lt;xsl:value-of select="tns1:name"/&gt;&lt;/tns1:name&gt;&lt;/xsl:if&gt;&lt;xsl:if test="tns1:description"&gt;&lt;tns1:description&gt;&lt;xsl:value-of select="tns1:description"/&gt;&lt;/tns1:description&gt;&lt;/xsl:if&gt;&lt;xsl:if test="tns1:releaseYear"&gt;&lt;tns1:releaseYear&gt;&lt;xsl:value-of select="tns1:releaseYear"/&gt;&lt;/tns1:releaseYear&gt;&lt;/xsl:if&gt;&lt;/tns1:Books&gt;&lt;/xsl:for-each&gt;&lt;/xsl:if&gt;&lt;/tns1:Books&gt;&lt;/item&gt;&lt;/tns:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20170616051652PLT&quot; xmlns:tns1=&quot;/T1497590320427Converted/JsonSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.item&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:Books>&#xa;            &lt;xsl:copy-of select=&quot;$post.item/tns1:Books&quot;/>&#xa;        &lt;/tns1:Books>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20170616051652PLT&quot; xmlns:tns1=&quot;/T1497590320427Converted/JsonSchema&quot; xmlns:tns2=&quot;http://xmlns.example.com/20140929140236&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.item&quot;/>&#xa;    &lt;xsl:param name=&quot;callAddBooks.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:Books>&#xa;            &lt;xsl:if test=&quot;$callAddBooks.parameters/count gt 0&quot;>&#xa;                &lt;xsl:for-each select=&quot;$post.item/tns1:Books&quot;>&#xa;                    &lt;tns1:Books>&#xa;                        &lt;xsl:if test=&quot;tns1:authorName&quot;>&#xa;                            &lt;tns1:authorName>&#xa;                                &lt;xsl:value-of select=&quot;tns1:authorName&quot;/>&#xa;                            &lt;/tns1:authorName>&#xa;                        &lt;/xsl:if>&#xa;                        &lt;xsl:if test=&quot;tns1:isbn&quot;>&#xa;                            &lt;tns1:isbn>&#xa;                                &lt;xsl:value-of select=&quot;tns1:isbn&quot;/>&#xa;                            &lt;/tns1:isbn>&#xa;                        &lt;/xsl:if>&#xa;                        &lt;xsl:if test=&quot;tns1:name&quot;>&#xa;                            &lt;tns1:name>&#xa;                                &lt;xsl:value-of select=&quot;tns1:name&quot;/>&#xa;                            &lt;/tns1:name>&#xa;                        &lt;/xsl:if>&#xa;                        &lt;xsl:if test=&quot;tns1:description&quot;>&#xa;                            &lt;tns1:description>&#xa;                                &lt;xsl:value-of select=&quot;tns1:description&quot;/>&#xa;                            &lt;/tns1:description>&#xa;                        &lt;/xsl:if>&#xa;                        &lt;xsl:if test=&quot;tns1:releaseYear&quot;>&#xa;                            &lt;tns1:releaseYear>&#xa;                                &lt;xsl:value-of select=&quot;tns1:releaseYear&quot;/>&#xa;                            &lt;/tns1:releaseYear>&#xa;                        &lt;/xsl:if>&#xa;                    &lt;/tns1:Books>&#xa;                &lt;/xsl:for-each>&#xa;            &lt;/xsl:if>&#xa;        &lt;/tns1:Books>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <bpws:targets>
                                     <bpws:target linkName="addBooksTopostOut"/>
@@ -2297,9 +2308,10 @@
                                     <bpws:source linkName="postOutToOnMessageEnd"/>
                                 </bpws:sources>
                             </bpws:reply>
-                            <bpws:invoke inputVariable="addBooks-input"
-                                name="addBooks" operation="addBooks"
-                                outputVariable="addBooks"
+                            <bpws:invoke
+                                inputVariable="callAddBooks-input"
+                                name="callAddBooks" operation="addBooks"
+                                outputVariable="callAddBooks"
                                 partnerLink="BooksDBService"
                                 portType="ns1:BooksDB" tibex:xpdlId="6de7d1b7-6009-43cb-8d4c-aa9e2319d306">
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -2536,10 +2548,11 @@
                             </bpws:invoke>
                             <bpws:reply faultName="clientFault"
                                 name="Reply" operation="get"
-                                partnerLink="books" portType="ns0:books"
+                                partnerLink="books1"
+                                portType="ns0:books1"
                                 tibex:xpdlId="e9d954bb-3db3-44e6-8ac2-86365335a086" variable="Reply-input">
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20170616051652PLT" xmlns:tns1="http://tns.tibco.com/bw/REST" version="2.0"&gt;&lt;xsl:template name="Reply-input" match="/"&gt;&lt;tns:get4XXFaultMessage&gt;&lt;clientError&gt;&lt;tns1:client4XXError&gt;&lt;statusCode&gt;&lt;xsl:value-of select="404"/&gt;&lt;/statusCode&gt;&lt;message&gt;&lt;xsl:value-of select="&amp;quot;Not found.&amp;quot;"/&gt;&lt;/message&gt;&lt;/tns1:client4XXError&gt;&lt;/clientError&gt;&lt;/tns:get4XXFaultMessage&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://xmlns.example.com/20170616051652PLT" xmlns:tns1="http://tns.tibco.com/bw/REST" version="2.0"&gt;&lt;xsl:template name="Reply-input" match="/"&gt;&lt;tns:get4XXFaultMessage1&gt;&lt;clientError&gt;&lt;tns1:client4XXError&gt;&lt;statusCode&gt;&lt;xsl:value-of select="404"/&gt;&lt;/statusCode&gt;&lt;message&gt;&lt;xsl:value-of select="&amp;quot;Not found.&amp;quot;"/&gt;&lt;/message&gt;&lt;/tns1:client4XXError&gt;&lt;/clientError&gt;&lt;/tns:get4XXFaultMessage1&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <tibex:inputBindings>
                                     <tibex:partBinding
                                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/20170616051652PLT&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/REST&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;Reply-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:client4XXError>&#xa;            &lt;statusCode>&#xa;                &lt;xsl:value-of select=&quot;404&quot;/>&#xa;            &lt;/statusCode>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot;Not found.&amp;quot;&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns1:client4XXError>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>

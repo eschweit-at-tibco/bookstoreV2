@@ -133,6 +133,9 @@
             "schema": {
               "$ref": "#/definitions/Books"
             }
+          },
+          "404": {
+            "description": "Not found response"
           }
         },
         "parameters": []
