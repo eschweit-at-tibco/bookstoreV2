@@ -82,42 +82,6 @@
 			</exec>
 		</sequential>
 	</macrodef>
-
-	<target name="test-docker">
-		<copy file="../BWSE-TestApp/target/BWSE-TestApp_1.0.0.ear" todir="."/>
-		
-		<echo message="Creating Docker Image"/>
-		<create-docker-image image-name="${IMAGE_NAME}"/>
-
-		<echo message="Running Docker Image"/>
-		<run-docker-image image-name="${IMAGE_NAME}" container-name="${CONTAINER_NAME}" port-number="${PORT_NUMBER}"/>
-
-		<echo message="Waiting for Docker Container to be started"/>
-		<waitfor maxwait="30" maxwaitunit="second">
-			<http url="http://localhost:${PORT_NUMBER}/sayhello" />
-		</waitfor>
-
-		<echo message="Testing"/>
-		<exec executable="curl">
-			<arg value="-X" />
-			<arg value="POST" />
-			<arg value="--header" />
-			<arg value="Content-Type: application/json" />
-			<arg value="--header" />
-			<arg value="Accept: application/json" />
-			<arg value="-d" />
-			<arg value='{ "in": "John" }' />
-			<arg value="http://localhost:${PORT_NUMBER}/sayhello" />
-		</exec>
-
-		<echo message="Stopping Docker Container"/>	
-		<stop-docker-container container-name="${CONTAINER_NAME}"/>
-
-		<echo message="Removing Docker Container and Image"/>	
-		<remove-docker-container container-name="${CONTAINER_NAME}"/>
-		<push-docker-image image-name="${IMAGE_NAME}"/>
-		<remove-docker-image image-name="${IMAGE_NAME}"/>
-	</target>
 	
 	<target name="build">
 		<copy file="../tibco.bwce.sample.binding.rest.BookStore.application/target/tibco.bwce.sample.binding.rest.BookStore.application_1.0.0.ear" todir="."/>
