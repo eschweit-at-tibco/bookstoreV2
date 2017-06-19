@@ -20,11 +20,11 @@
 								"type": "text/javascript",
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Did not receive a Book structure\"] = (receivedData.Book === undefined);",
+									"tests[\"Did not receive a Books structure\"] = (receivedData.Books === undefined);",
 									""
 								]
 							}
@@ -59,21 +59,18 @@
 								"type": "text/javascript",
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
-									"var expectedData = JSON.parse('{\"Book\":[{\\",
+									"var expectedData = JSON.parse('{\"Books\":[{\\",
 									"  \"isbn\": \"978-0140177398\",\\",
 									"  \"name\": \"Of Mice and Men\",\\",
 									"  \"description\": \"A classic by John Steinbeck\",\\",
 									"  \"authorName\": \"John Steinbeck\",\\",
-									"  \"releaseDate\": \"1993-09-01\",\\",
-									"  \"vintage\": true,\\",
-									"  \"signed\": false,\\",
-									"  \"price\": 9.95\\",
+									"  \"releaseYear\": 1993\\",
 									"}]}');",
 									"",
-									"tests[\"Put books has stored the right values\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
+									"tests[\"Put books has stored the right values\"] = (JSON.stringify(expectedData, Object.keys(expectedData).sort()) === JSON.stringify(receivedData, Object.keys(expectedData).sort()));",
 									""
 								]
 							}
@@ -96,7 +93,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Books\": [\n\t\t{\n\t\t\t\"isbn\": \"978-0140177398\",\n\t\t\t\"name\": \"Of Mice and Men\",\n\t\t\t\"description\": \"A classic by John Steinbeck\",\n\t\t\t\"authorName\": \"John Steinbeck\",\n\t\t\t\"releaseYear\": \"1993\"\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"Books\": [\n\t\t{\n\t\t\t\"isbn\": \"978-0140177398\",\n\t\t\t\"name\": \"Of Mice and Men\",\n\t\t\t\"description\": \"A classic by John Steinbeck\",\n\t\t\t\"authorName\": \"John Steinbeck\",\n\t\t\t\"releaseYear\": 1993\n\t\t}\n\t]\n}"
 						},
 						"description": ""
 					},
@@ -111,7 +108,7 @@
 								"type": "text/javascript",
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
 									"var expectedData = JSON.parse('{\\",
@@ -119,13 +116,10 @@
 									"  \"name\": \"Of Mice and Men\",\\",
 									"  \"description\": \"A classic by John Steinbeck\",\\",
 									"  \"authorName\": \"John Steinbeck\",\\",
-									"  \"releaseDate\": \"1993-09-01Z\",\\",
-									"  \"vintage\": true,\\",
-									"  \"signed\": false,\\",
-									"  \"price\": 9.95\\",
+									"  \"releaseYear\": 1993\\",
 									"}');",
 									"",
-									"tests[\"Put books has been found\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
+									"tests[\"Put books has been found\"] = (JSON.stringify(expectedData, Object.keys(expectedData).sort()) === JSON.stringify(receivedData, Object.keys(receivedData).sort()));",
 									"",
 									"",
 									""
@@ -134,7 +128,7 @@
 						}
 					],
 					"request": {
-						"url": "{{base_url}}/book/978-0140177398",
+						"url": "{{base_url}}/books/978-0140177398",
 						"method": "GET",
 						"header": [
 							{
@@ -162,21 +156,18 @@
 								"type": "text/javascript",
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
-									"var expectedData = JSON.parse('{\"Book\":[{\\",
+									"var expectedData = JSON.parse('{\"Books\":[{\\",
 									"  \"isbn\": \"978-0140177398\",\\",
 									"  \"name\": \"Of Mice and Men\",\\",
 									"  \"description\": \"A classic by John Steinbeck\",\\",
 									"  \"authorName\": \"John Steinbeck\",\\",
-									"  \"releaseDate\": \"1993-09-01\",\\",
-									"  \"vintage\": true,\\",
-									"  \"signed\": false,\\",
-									"  \"price\": 9.95\\",
+									"  \"releaseYear\": 1993\\",
 									"}]}');",
 									"",
-									"tests[\"Put twice on the same book is OK\"] = (JSON.stringify(expectedData) === JSON.stringify(receivedData));",
+									"tests[\"Put twice on the same book is NOK\"] = (JSON.stringify(expectedData, Object.keys(expectedData).sort()) !== JSON.stringify(receivedData, Object.keys(receivedData).sort()));",
 									""
 								]
 							}
@@ -199,7 +190,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Book\": [\n\t\t{\n\t\t\t\"isbn\": \"978-0140177398\",\n\t\t\t\"name\": \"Of Mice and Men\",\n\t\t\t\"description\": \"A classic by John Steinbeck\",\n\t\t\t\"authorName\": \"John Steinbeck\",\n\t\t\t\"releaseDate\": \"1993-09-01\",\n\t\t\t\"vintage\": true,\n\t\t\t\"signed\": false,\n\t\t\t\"price\": 9.95\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"Books\": [\n\t\t{\n\t\t\t\"isbn\": \"978-0140177398\",\n\t\t\t\"name\": \"Of Mice and Men\",\n\t\t\t\"description\": \"A classic by John Steinbeck\",\n\t\t\t\"authorName\": \"John Steinbeck\",\n\t\t\t\"releaseYear\": 1993\n\t\t}\n\t]\n}"
 						},
 						"description": ""
 					},
@@ -214,12 +205,12 @@
 								"type": "text/javascript",
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+									"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
 									"",
 									"var receivedData = JSON.parse(responseBody);",
 									"",
-									"tests[\"Received a Book structure\"] = (receivedData.Book !== undefined);",
-									"tests[\"Received the right number of entries\"] = ((receivedData.Book !== undefined) && receivedData.Book.length === 2);"
+									"tests[\"Received a Book structure\"] = (receivedData.Books !== undefined);",
+									"tests[\"Received the right number of entries\"] = ((receivedData.Books !== undefined) && receivedData.Books.length === 2);"
 								]
 							}
 						}
