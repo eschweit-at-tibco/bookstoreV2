@@ -100,6 +100,7 @@
 	
 	<target name="newman">
 		<echo message="Testing with Newman"/>
+		<sleep milliseconds="5000" />
 		<exec executable="newman">
 			<arg value="run" />
 			<arg value="-e" />
