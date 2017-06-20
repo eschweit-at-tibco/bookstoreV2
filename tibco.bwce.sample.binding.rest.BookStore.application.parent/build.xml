@@ -120,6 +120,7 @@
 	</target>
 	
 	<target name="assess-result">
+		<echo message="Assessing testing result: ${NEWMAN_EXITCODE}" />
 		<fail>
 			<condition>
 				<not>
