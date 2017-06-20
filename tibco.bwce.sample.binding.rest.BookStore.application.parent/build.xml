@@ -9,6 +9,7 @@
 	<property name="IMAGE_NAME" value="bwce-bookstore" />
 	<property name="HOST_PORT_NUMBER" value="9080" />
 	<property name="PORT_NUMBER" value="8080" />
+	<property name="NEWMAN_EXITCODE" value="0" />
 	<generateguid name="GUID" />
 	<property name="CONTAINER_NAME" value="${GUID}" />
 
@@ -101,7 +102,7 @@
 	<target name="newman">
 		<echo message="Testing with Newman"/>
 		<sleep milliseconds="5000" />
-		<exec executable="newman">
+		<exec executable="newman" resultproperty="NEWMAN_EXITCODE">
 			<arg value="run" />
 			<arg value="-e" />
 			<arg value="./tests/newman/Bookstore Test.postman_environment.json" />
@@ -116,6 +117,16 @@
 		<echo message="Removing Docker Container and Image"/>	
 		<remove-docker-container container-name="${CONTAINER_NAME}"/>
 		<remove-docker-image image-name="${IMAGE_NAME}"/>
+	</target>
+	
+	<target name="assess-result">
+		<fail>
+			<condition>
+				<not>
+					<equals arg1="${NEWMAN_EXITCODE}" arg2="0" />
+				</not>
+			</condition>
+		</fail>
 	</target>
 </project>
 	
