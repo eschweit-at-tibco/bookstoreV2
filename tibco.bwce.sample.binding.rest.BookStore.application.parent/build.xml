@@ -9,7 +9,6 @@
 	<property name="IMAGE_NAME" value="bwce-bookstore" />
 	<property name="HOST_PORT_NUMBER" value="9080" />
 	<property name="PORT_NUMBER" value="8080" />
-	<property name="NEWMAN_EXITCODE" value="0" />
 	<generateguid name="GUID" />
 	<property name="CONTAINER_NAME" value="${GUID}" />
 
@@ -94,7 +93,7 @@
 		<run-docker-image image-name="${IMAGE_NAME}" container-name="${CONTAINER_NAME}" host-port-number="${HOST_PORT_NUMBER}" image-port-number="${PORT_NUMBER}"/>
 
 		<echo message="Waiting for Docker Container to be started"/>
-		<waitfor maxwait="75" maxwaitunit="second">
+		<waitfor maxwait="90" maxwaitunit="second">
 			<http url="http://localhost:${HOST_PORT_NUMBER}/books" />
 		</waitfor>
 	</target>
