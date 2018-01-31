@@ -103,9 +103,9 @@
 		<sleep milliseconds="5000" />
 		<exec executable="newman" resultproperty="NEWMAN_EXITCODE">
 			<arg value="run" />
+			<arg value="./tests/newman/Bookstore Collection.postman_collection.json" />
 			<arg value="-e" />
 			<arg value="./tests/newman/Bookstore Test.postman_environment.json" />
-			<arg value="./tests/newman/Bookstore Collection.postman_collection.json" />
 			<arg value="--reporters" />
 			<arg value="junit" />
 		</exec>
