@@ -210,7 +210,7 @@
 									"var receivedData = JSON.parse(responseBody);",
 									"",
 									"tests[\"Received a Book structure\"] = (receivedData.Books !== undefined);",
-									"tests[\"Received the right number of entries\"] = ((receivedData.Books !== undefined) && receivedData.Books.length === 2);"
+									"tests[\"Received the right number of entries\"] = ((receivedData.Books !== undefined) && receivedData.Books.length === 1);"
 								]
 							}
 						}
