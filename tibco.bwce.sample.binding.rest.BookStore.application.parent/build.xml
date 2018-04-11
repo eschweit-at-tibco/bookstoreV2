@@ -98,6 +98,14 @@
 		</waitfor>
 	</target>
 	
+	<target name="wipe-backenddb">
+		<echo message="Cleaning up"/>
+		<exec executable="/bin/bash">
+			<arg line="./wipe.sh"/>
+			<arg line="Tibco123."/>
+		</exec>
+	</target>
+	
 	<target name="newman">
 		<echo message="Testing with Newman"/>
 		<sleep milliseconds="5000" />
